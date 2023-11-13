@@ -1,0 +1,87 @@
+change jsconfig.json file to change the  import path as @/ to @ 
+{
+  "compilerOptions": {
+    "paths": {
+      "@*": ["./*"]
+    }
+  }
+}
+this will import direclty in the directory without even searching anywhere 
+
+to move from one page to another we use 
+import Link from "next/link"
+
+to optimize image we use 
+import Image from "next/image"
+
+import {signIn,signOut,useSession,getProviders} from 'next-auth/react'
+ these functions fastens the work  flow 
+
+
+Never change react stage on the previu=ous state behaviour as it can add unexpected behaviour 
+example 
+
+In naavbar 
+
+onClick={()=>{setToggleDropdown(!toggleDropdown)}} //Not a good approach 
+
+Instead use this 
+
+              onClick={()=>setToggleDropdown((prev)=>{!prev})}
+
+
+
+//Stop at 1:31:16
+
+
+We need a lot of environment variables for next auth  
+
+
+
+
+NEXT_AUTH_SECRET="GCYRJXCKHFVGCJDZXTUGJHFVGCDZJ"
+NEXT_AUTH_URL="http://localhost:3000"
+
+
+
+
+This instead of this 
+
+ NEXTAUTH_URL = "https://localhost:3000"
+NEXTAUTH_URL_INTERNAL = "https://localhost:3000"
+NEXTAUTH_SECRET="ABCDEFGadfetjlkHIJtytvtKbSbcSDAWADhyz01234556412"
+google errror signIn
+
+
+
+
+Check nav.js file to understand the fetched details after the 
+user has signed in so we use useSession here 
+
+
+
+
+  To create a copy buutton use react use image tick and copy and state to store data \
+
+                <div className="copy_btn" onClick={()=>{}}>
+                              <Image src={copied === post.prompt ? '/assets/icons/tick.svg' 
+                               : '/assets/icons/copy.svg'}/>
+
+                            </div>
+                            
+                const handleCopy = ()=>{
+                setCopied(post.prompt);
+                navigator.clipboard.writeText(post.prompt);
+                setTimeout(()=> setCopied(""),3000);
+              }
+
+
+  on click of a button call a function where you pass the seted state and  save 
+
+
+  browser confirm inbult method to confirm before you delete the
+
+  onst handleDelete = (post)=>{
+        const hasConfirmed = confirm("Are you sure you want to delete this prompt")
+    }
+    
